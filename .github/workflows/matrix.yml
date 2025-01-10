@@ -7,6 +7,15 @@ jobs:
             matrix:
                 node_version: [12,14,18]
                 os: [ubuntu-latest, windows-latest]
+                include:
+                    - node_version: 18
+                      os: ubuntu-latest
+                #so this will create a single combinations apart from the above matrix all combinations.
+                exclude:
+                    - node_version: 12
+                      os: windows-latest
+                #this will not create a combination of windows and node ver12.
+                
         runs-on: ${{matrix.os}}
         steps:
             - name: get code
