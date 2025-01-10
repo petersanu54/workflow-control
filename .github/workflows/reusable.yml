@@ -1,0 +1,8 @@
+name: reusable workflow
+on: workflow_call #using this wf in other wf "reusable_wf_import"
+jobs:
+    deploy: 
+        runs-on: ubuntu-latest
+        steps:
+            - name: output info
+              run: echo "deploying and uploading"
